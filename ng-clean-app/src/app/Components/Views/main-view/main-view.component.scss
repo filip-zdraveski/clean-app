@@ -1,0 +1,19 @@
+.big{
+  width: 300px;
+  height: 300px;
+}
+.primary-color{
+  background-color: aquamarine;
+  border: solid mediumaquamarine 1px;
+  opacity: 0.8;
+}
+.left{
+  position: fixed;
+  left: 10%;
+  top: 10%;
+}
+.right{
+  position: fixed;
+  right: 10%;
+  top: 10%;
+}
