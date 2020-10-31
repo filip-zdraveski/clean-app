@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MainViewComponent } from './Components/AtomicComponents/main-view/main-view.component';
+import { MainViewComponent } from './Components/Views/main-view/main-view.component';
 
 @NgModule({
   declarations: [
