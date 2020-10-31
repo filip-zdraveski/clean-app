@@ -11,8 +11,15 @@ public class GarbageZone {
     @Column(name = "id")
     private long id;
 
-    @Column(name = "name")
-    private String name;
+    @ManyToOne
+    @JoinColumn(name = "city_id")
+    private City city;
+
+    @Column(name = "coordinates")
+    private String coordinates;
+
+    @Column(name = "description")
+    private String description;
 
     public GarbageZone() {
 
@@ -26,11 +33,27 @@ public class GarbageZone {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public City getCity() {
+        return city;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setCity(City city) {
+        this.city = city;
+    }
+
+    public String getCoordinates() {
+        return coordinates;
+    }
+
+    public void setCoordinates(String coordinates) {
+        this.coordinates = coordinates;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }
