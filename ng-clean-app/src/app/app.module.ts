@@ -11,13 +11,15 @@ import { MatButtonToggleModule } from "@angular/material/button-toggle";
 import { AddTagComponent } from './Components/Views/add-tag/add-tag.component';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
+import { LoginViewComponent } from './Components/Views/login-view/login-view.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainViewComponent,
     MenuBarComponent,
-    AddTagComponent
+    AddTagComponent,
+    LoginViewComponent
   ],
   imports: [
     BrowserModule,
