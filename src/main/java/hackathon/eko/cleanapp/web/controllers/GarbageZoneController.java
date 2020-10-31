@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/garbage-zones")
+@RequestMapping("/api/garbage-zones")
 public class GarbageZoneController {
 
     private final GarbageZoneService garbageZoneService;

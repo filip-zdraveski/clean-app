@@ -1,0 +1,25 @@
+<div class="container">
+  <h1>Додади нова депонија</h1>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+    <div class="form-group">
+      <label for="cityId">Град</label>
+      <select formControlName="cityId" class="form-control" id="cityId" name="cityId" required [title]="'Избери град'">
+        <option value="">-- Изберете град --</option>
+        <option *ngFor="let city of cities" [value]="city.id">{{city.name}}</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="coordinates">Координати</label>
+      <input formControlName="coordinates" type="text" class="form-control" id="coordinates" name="coordinates">
+    </div>
+
+    <div class="form-group">
+      <label for="description">Опис</label>
+      <textarea formControlName="description" cols="5" class="form-control tall-box" id="description" name="description"></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-success" [disabled]="!form.valid">Submit</button>
+  </form>
+</div>
