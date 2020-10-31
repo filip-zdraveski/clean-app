@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {AuthenticationService} from '../../../services/authentication.service';
+import {Authorization} from '../../../Models/Enumeration/Authorization';
 
 @Component({
   selector: 'app-menu-bar',
@@ -6,10 +8,35 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./menu-bar.component.scss']
 })
 export class MenuBarComponent implements OnInit {
+  isLoggedIn: boolean;
+  role: string;
+  username: string;
 
-  constructor() { }
+  constructor(private authService: AuthenticationService) {
 
-  ngOnInit(): void {
+  }
+
+  ngOnInit() {
+    this.isLoggedIn = AuthenticationService.isLoggedIn();
+    if (this.isLoggedIn) {
+      this.role = localStorage.getItem('role');
+      this.username = localStorage.getItem('username');
+    }
+    this.authService.isLoggedIn$.subscribe(r => {
+      this.isLoggedIn = r;
+      if (this.isLoggedIn) {
+        this.role = localStorage.getItem('role');
+        this.username = localStorage.getItem('username');
+      }
+    });
+  }
+
+  getUsername() {
+    return localStorage.getItem('username');
+  }
+
+  logout() {
+    this.authService.logout();
   }
 
 }
