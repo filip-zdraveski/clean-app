@@ -14,11 +14,19 @@ create table public.cities (
     name text not null unique
 );
 
+create table public.images (
+    id serial primary key,
+    name text not null,
+    type text not null,
+    bytes bytea
+);
+
 create table public.garbage_zones (
     id serial primary key,
     city_id int not null references public.cities(id),
     coordinates text,
-    description text
+    description text,
+    image_id int references public.images(id)
 );
 
 -- Insert data into existing tables below this line
@@ -29,8 +37,3 @@ values ('Берово'), ('Битола'), ('Богданци'), ('Валанд�
        ('Крива Паланка'), ('Крушево'), ('Куманово'), ('Македонски Брод'), ('Македонска Каменица'), ('Неготино'),
        ('Охрид'), ('Пехчево'), ('Прилеп'), ('Пробиштип'), ('Радовиш'), ('Ресен'), ('Свети Николе'), ('Скопје'),
        ('Струга'), ('Струмица'), ('Тетово'), ('Штип');
-
-insert into public.garbage_zones(city_id, coordinates, description)
-values (30, '41.978171, 21.447856', 'Населба 11 октомври, после супер тинексот кон центар, од десна страна'),
-       (2, '41.0319425,21.3396502', 'Позади автобуската станица Битола'),
-       (23, '41.102808, 20.807226', 'На паркингот кај Билјанини Извори');

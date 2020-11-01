@@ -21,6 +21,10 @@ public class GarbageZone {
     @Column(name = "description")
     private String description;
 
+    @ManyToOne
+    @JoinColumn(name = "image_id")
+    private Image image;
+
     public GarbageZone() {
 
     }
@@ -55,5 +59,13 @@ public class GarbageZone {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Image getImage() {
+        return image;
+    }
+
+    public void setImage(Image image) {
+        this.image = image;
     }
 }

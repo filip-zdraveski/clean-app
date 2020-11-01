@@ -3,6 +3,7 @@ package hackathon.eko.cleanapp.web.controllers;
 import hackathon.eko.cleanapp.service.GarbageZoneService;
 import hackathon.eko.cleanapp.web.exceptions.CityNotFoundException;
 import hackathon.eko.cleanapp.web.exceptions.GarbageZoneNotFoundException;
+import hackathon.eko.cleanapp.web.exceptions.ImageNotFoundException;
 import hackathon.eko.cleanapp.web.requests.GarbageZoneRequest;
 import hackathon.eko.cleanapp.web.responses.GarbageZoneResponse;
 import org.springframework.web.bind.annotation.*;
@@ -35,7 +36,7 @@ public class GarbageZoneController {
     }
 
     @PostMapping("/create")
-    public void createNewGarbageZone(@RequestBody GarbageZoneRequest request) throws CityNotFoundException {
+    public void createNewGarbageZone(@RequestBody GarbageZoneRequest request) throws CityNotFoundException, ImageNotFoundException {
         this.garbageZoneService.create(request);
     }
 }

@@ -19,4 +19,12 @@ export class AppService {
   createGarbageZone(garbageZone: GarbageZone): Observable<any> {
     return this.httpClient.post<any>(`/api/garbage-zones/create`, garbageZone)
   }
+
+  uploadImage(uploadImageData): Observable<any> {
+    return this.httpClient.post('api/images/upload', uploadImageData)
+  }
+
+  getImage(imageName): Observable<any> {
+    return this.httpClient.get(`api/images/${imageName}`, imageName)
+  }
 }

@@ -6,4 +6,5 @@ public class GarbageZoneRequest {
     public long cityId;
     public String coordinates;
     public String description;
+    public long imageId;
 }
