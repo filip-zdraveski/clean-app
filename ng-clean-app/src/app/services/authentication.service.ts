@@ -1,9 +1,10 @@
 import {Injectable} from '@angular/core';
-import {Subject} from "rxjs";
+import {Observable, Subject} from "rxjs";
 import {Authorization} from '../Models/Enumeration/Authorization';
 import {mockService} from "./mock.service";
 import {User} from "../Models/Classes/User";
 import {Router} from "@angular/router";
+import {map} from "rxjs/operators";
 
 @Injectable({providedIn: 'root'})
 export class AuthenticationService {
@@ -19,7 +20,7 @@ export class AuthenticationService {
     localStorage.setItem('authorization', user.authorization.toString());
     localStorage.setItem('loggedIn', 'true');
     this.isLoggedIn$.next(true);
-
+    return new Observable<any> ().pipe(map(r=> this.mock.mockLoginResponse()));
   }
 
   logout() {

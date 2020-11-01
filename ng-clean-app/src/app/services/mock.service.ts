@@ -1,6 +1,8 @@
 import {Injectable} from "@angular/core";
 import {Observable, of} from "rxjs";
 import {User} from '../Models/Classes/User';
+import {LoginResponse} from "../Models/Classes/login-response";
+import {Authorization} from "../Models/Enumeration/Authorization";
 
 @Injectable({
   providedIn: 'root'
@@ -38,6 +40,10 @@ export class mockService{
   }
   async delay() {
     await new Promise(resolve => setTimeout(() => resolve(), 150)).then(() => {});
+  }
+
+  mockLoginResponse(){
+    return new LoginResponse('9999', '1234', Authorization.USER, true);
   }
 
   login(username: any, password: any) {
