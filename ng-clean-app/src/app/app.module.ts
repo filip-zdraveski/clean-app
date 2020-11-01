@@ -12,6 +12,9 @@ import { AddTagComponent } from './Components/Views/add-tag/add-tag.component';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 import { LoginViewComponent } from './Components/Views/login-view/login-view.component';
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatInputModule} from "@angular/material/input";
+import { LoginScreenComponent } from './Components/Views/login-screen/login-screen.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +22,8 @@ import { LoginViewComponent } from './Components/Views/login-view/login-view.com
     MainViewComponent,
     MenuBarComponent,
     AddTagComponent,
-    LoginViewComponent
+    LoginViewComponent,
+    LoginScreenComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +33,9 @@ import { LoginViewComponent } from './Components/Views/login-view/login-view.com
     MatButtonToggleModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -2,12 +2,13 @@ import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 import {MainViewComponent} from "./Components/Views/main-view/main-view.component";
 import {AddTagComponent} from "./Components/Views/add-tag/add-tag.component";
-import {LoginViewComponent} from "./Components/Views/login-view/login-view.component";
+import {LoginScreenComponent} from "./Components/Views/login-screen/login-screen.component";
+
 
 const routes: Routes = [
-  {path: '', component: MainViewComponent},
+  {path: 'login', component: LoginScreenComponent},
   {path: 'garbage-zones/create', component: AddTagComponent},
-  {path: 'login', component: LoginViewComponent}
+  {path: '', component: MainViewComponent}
 ];
 
 @NgModule({

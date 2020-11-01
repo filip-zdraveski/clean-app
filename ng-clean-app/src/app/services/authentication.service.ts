@@ -19,6 +19,7 @@ export class AuthenticationService {
     localStorage.setItem('authorization', user.authorization.toString());
     localStorage.setItem('loggedIn', 'true');
     this.isLoggedIn$.next(true);
+
   }
 
   logout() {
