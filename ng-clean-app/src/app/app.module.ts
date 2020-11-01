@@ -25,6 +25,8 @@ import {HttpClientModule} from "@angular/common/http";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {LoginScreenComponent} from './Components/Views/login-screen/login-screen.component';
+import { TagsMapComponent } from './Components/Views/tags-map/tags-map.component';
+import { HereMapComponent } from './Components/here-map/here-map.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,10 @@ import {LoginScreenComponent} from './Components/Views/login-screen/login-screen
     MainViewComponent,
     MenuBarComponent,
     AddTagComponent,
-    LoginScreenComponent
+    LoginScreenComponent,
+    TagsMapComponent,
+    HereMapComponent,
+    HereMapComponent
   ],
   imports: [
     BrowserModule,
