@@ -7,6 +7,9 @@
   border: solid mediumaquamarine 1px;
   opacity: 0.8;
 }
+.primary-color:hover{
+  background-color: #0c4910;
+}
 .left{
   position: fixed;
   left: 12%;
@@ -18,9 +21,11 @@
   top: 15%;
 }
 .f-font{
-  font-family: 'Yatra One', cursive, lighter;
-  font-size: xx-large;
+  font-family: 'Amatic SC', cursive;
+  font-size: 10vh;
   color: #0c4910;
   text-decoration: none;
-
+}
+.f-font:hover{
+  color: snow;
 }
