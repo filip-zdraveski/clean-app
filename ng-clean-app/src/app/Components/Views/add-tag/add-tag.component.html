@@ -27,10 +27,10 @@
                [disabled]="this.uploaded"
                (change)="onFileChanged($event)"/>
         <span *ngIf="uploaded">Сликата е прикачена.</span>
-        <button type="button" *ngIf="this.selectedFile && !uploaded" class="btn btn-primary" (click)="onUpload()">Upload</button>
+        <button type="button" *ngIf="this.selectedFile && !this.uploaded" class="btn btn-primary" (click)="onUpload()">Upload</button>
       </div>
 
-      <button type="submit" class="btn btn-lg w-100 btn-success" [disabled]="!form.valid">Submit</button>
+      <button type="submit" class="btn btn-lg w-100 btn-success" [disabled]="!form.valid || !this.uploaded">Submit</button>
     </form>
   </div>
 </div>

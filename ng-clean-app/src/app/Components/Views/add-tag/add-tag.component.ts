@@ -25,7 +25,6 @@ export class AddTagComponent implements OnInit {
 
   ngOnInit(): void {
     this.service.getCities().subscribe(cities => this.cities = cities);
-
     this.initForm();
   }
 
@@ -41,8 +40,7 @@ export class AddTagComponent implements OnInit {
   onSubmit() {
     this.service.createGarbageZone(this.form.getRawValue())
       .subscribe(() => {
-        // TODO: Check why this isn't working
-        return this.router.navigateByUrl('../../', { relativeTo: this.route });
+        return this.router.navigate(['../../'], { relativeTo: this.route });
       });
   }
 
