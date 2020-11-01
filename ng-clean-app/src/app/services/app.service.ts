@@ -17,14 +17,30 @@ export class AppService {
   }
 
   createGarbageZone(garbageZone: GarbageZone): Observable<any> {
-    return this.httpClient.post<any>(`/api/garbage-zones/create`, garbageZone)
+    return this.httpClient.post<any>(`/api/garbage-zones/create`, garbageZone);
   }
 
   uploadImage(uploadImageData): Observable<any> {
-    return this.httpClient.post('api/images/upload', uploadImageData)
+    return this.httpClient.post('api/images/upload', uploadImageData);
   }
 
-  getImage(imageName): Observable<any> {
-    return this.httpClient.get(`api/images/${imageName}`, imageName)
+  getImageById(id: number): Observable<any> {
+    return this.httpClient.get(`api/images/${id}`);
+  }
+
+  getImageByName(imageName: string): Observable<any> {
+    return this.httpClient.get(`api/images/${imageName}`);
+  }
+
+  getImageForGarbageZone(id: number): Observable<any> {
+    return this.httpClient.get(`api/images/garbage-zone/${id}`)
+  }
+
+  getGarbageZones(): Observable<any> {
+    return this.httpClient.get<any>(`api/garbage-zones`);
+  }
+
+  findGarbageZone(id: number): Observable<any> {
+    return this.httpClient.get<any>(`api/garbage-zones/${id}`);
   }
 }

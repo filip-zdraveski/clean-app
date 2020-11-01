@@ -1,6 +1,7 @@
 package hackathon.eko.cleanapp.web.controllers;
 
 import hackathon.eko.cleanapp.service.ImageService;
+import hackathon.eko.cleanapp.web.exceptions.GarbageZoneNotFoundException;
 import hackathon.eko.cleanapp.web.exceptions.ImageNotFoundException;
 import hackathon.eko.cleanapp.web.responses.ImageResponse;
 import org.springframework.web.bind.annotation.*;
@@ -26,5 +27,15 @@ public class ImageController {
     @GetMapping("{imageName}")
     public ImageResponse getImage(@PathVariable("imageName") String imageName) throws ImageNotFoundException {
         return this.imageService.findImageByName(imageName);
+    }
+
+    @GetMapping("{id}")
+    public ImageResponse getImageById(@PathVariable("id") long id) throws ImageNotFoundException {
+        return this.imageService.findImageById(id);
+    }
+
+    @GetMapping("/garbage-zone/{id}")
+    public ImageResponse getImageForGarbageZone(@PathVariable("id") long id) throws ImageNotFoundException, GarbageZoneNotFoundException {
+        return this.imageService.findImageForGarbageZone(id);
     }
 }

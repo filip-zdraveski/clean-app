@@ -2,7 +2,9 @@ package hackathon.eko.cleanapp.service;
 
 import hackathon.eko.cleanapp.model.Image;
 import hackathon.eko.cleanapp.repository.ImageRepository;
+import hackathon.eko.cleanapp.web.exceptions.GarbageZoneNotFoundException;
 import hackathon.eko.cleanapp.web.exceptions.ImageNotFoundException;
+import hackathon.eko.cleanapp.web.responses.GarbageZoneResponse;
 import hackathon.eko.cleanapp.web.responses.ImageResponse;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -17,9 +19,11 @@ import java.util.zip.Inflater;
 public class ImageService {
 
     private final ImageRepository imageRepository;
+    private final GarbageZoneService garbageZoneService;
 
-    public ImageService(ImageRepository imageRepository) {
+    public ImageService(ImageRepository imageRepository, GarbageZoneService garbageZoneService) {
         this.imageRepository = imageRepository;
+        this.garbageZoneService = garbageZoneService;
     }
 
     public ImageResponse uploadImage(MultipartFile file) throws IOException {
@@ -33,6 +37,17 @@ public class ImageService {
 
     public ImageResponse findImageByName(String imageName) throws ImageNotFoundException {
         Image retrievedImage = imageRepository.findByName(imageName).orElseThrow(() -> new ImageNotFoundException(imageName));
+        return mapToResponse(retrievedImage);
+    }
+
+    public ImageResponse findImageById(long id) throws ImageNotFoundException {
+        Image retrievedImage = imageRepository.findById(id).orElseThrow(() -> new ImageNotFoundException(id));
+        return mapToResponse(retrievedImage);
+    }
+
+    public ImageResponse findImageForGarbageZone(long id) throws ImageNotFoundException, GarbageZoneNotFoundException {
+        GarbageZoneResponse garbageZone = garbageZoneService.findById(id);
+        Image retrievedImage = imageRepository.findById(garbageZone.getImageId()).orElseThrow(() -> new ImageNotFoundException(garbageZone.getImageId()));
         return mapToResponse(retrievedImage);
     }
 

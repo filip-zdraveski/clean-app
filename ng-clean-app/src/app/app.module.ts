@@ -27,6 +27,7 @@ import {MatInputModule} from "@angular/material/input";
 import {LoginScreenComponent} from './Components/Views/login-screen/login-screen.component';
 import { TagsMapComponent } from './Components/Views/tags-map/tags-map.component';
 import { HereMapComponent } from './Components/here-map/here-map.component';
+import { TagViewComponent } from './Components/Views/tag-view/tag-view.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { HereMapComponent } from './Components/here-map/here-map.component';
     LoginScreenComponent,
     TagsMapComponent,
     HereMapComponent,
-    HereMapComponent
+    HereMapComponent,
+    TagViewComponent
   ],
   imports: [
     BrowserModule,

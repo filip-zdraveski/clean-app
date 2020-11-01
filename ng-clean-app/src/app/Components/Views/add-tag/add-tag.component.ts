@@ -58,15 +58,4 @@ export class AddTagComponent implements OnInit {
         this.form.patchValue({ imageId: response.id });
       });
   }
-
-  // TODO: Move this to the file where we want to display the pictures
-  getImage() {
-    // TODO: This is hardcoded for testing purposes, change it
-    this.service.getImage("slika.jpeg")
-      .subscribe(
-        res => {
-          this.retrievedImage = 'data:image/jpeg;base64,' + res.bytes;
-        }
-      );
-  }
 }

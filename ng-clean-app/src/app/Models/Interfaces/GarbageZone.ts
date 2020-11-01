@@ -3,4 +3,5 @@ export interface GarbageZone {
   cityId: number,
   coordinates: string,
   description: string
+  imageId: number;
 }

@@ -1,35 +1,50 @@
-<div class="parent">
-  <div class="center">
-    <h1><b>Додади нова депонија</b></h1>
-    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+<div class="row">
+  <div class="col-6">
+    <div class="parent">
+      <div class="center">
+        <h1><b>Означи депонија</b></h1>
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
 
-      <div class="form-group">
-        <label for="cityId">Град</label>
-        <select formControlName="cityId" class="form-control" id="cityId" name="cityId" required [title]="'Избери град'">
-          <option value="">-- Изберете град --</option>
-          <option *ngFor="let city of cities" [value]="city.id">{{city.name}}</option>
-        </select>
+          <div class="form-group">
+            <label for="cityId">Град</label>
+            <select formControlName="cityId" class="form-control" id="cityId" name="cityId" required [title]="'Избери град'">
+              <option value="">-- Изберете град --</option>
+              <option *ngFor="let city of cities" [value]="city.id">{{city.name}}</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label id="coordinatesLabel" for="coordinates">Координати (изберете со клик на мапата)</label>
+            <input formControlName="coordinates" type="text" class="form-control" id="coordinates"
+                   name="coordinates" [placeholder]="'Внесете ги координатите овде...'">
+          </div>
+
+          <div class="form-group">
+            <label for="description">Опис</label>
+            <textarea formControlName="description" cols="5" class="form-control tall-box" id="description"
+                      name="description" [placeholder]="'Внесете краток опис...'"></textarea>
+          </div>
+
+          <div class="form-group upload">
+            <label for="image">Прикачи слика</label>
+            <input type="file" class="form-control" id="image" name="image"
+                   [disabled]="this.uploaded"
+                   (change)="onFileChanged($event)"/>
+            <span *ngIf="uploaded">Сликата е прикачена.</span>
+            <button type="button" *ngIf="this.selectedFile && !this.uploaded" class="btn btn-primary" (click)="onUpload()">Upload</button>
+          </div>
+
+          <button type="submit" class="btn btn-lg w-100 btn-success" [disabled]="!form.valid || !this.uploaded">Submit</button>
+        </form>
       </div>
-
-      <div class="form-group">
-        <input formControlName="coordinates" type="text" class="form-control" id="coordinates" name="coordinates">
-      </div>
-
-      <div class="form-group">
-        <label for="description">Опис</label>
-        <textarea formControlName="description" cols="5" class="form-control tall-box" id="description" name="description"></textarea>
-      </div>
-
-      <div class="form-group upload">
-        <label for="image">Прикачи слика</label>
-        <input type="file" class="form-control" id="image" name="image"
-               [disabled]="this.uploaded"
-               (change)="onFileChanged($event)"/>
-        <span *ngIf="uploaded">Сликата е прикачена.</span>
-        <button type="button" *ngIf="this.selectedFile && !this.uploaded" class="btn btn-primary" (click)="onUpload()">Upload</button>
-      </div>
-
-      <button type="submit" class="btn btn-lg w-100 btn-success" [disabled]="!form.valid || !this.uploaded">Submit</button>
-    </form>
+    </div>
+  </div>
+  <div class="col-6">
+    <div class="map">
+      <here-map _apikey="OvrfmX4Fm8EZuRFvbL8w44GUKft-8QDBotIw6XPKpk4" lat="41.6137143" lng="21.743258" width="400" height="400px"></here-map>
+    </div>
   </div>
 </div>
+
+
+
