@@ -1,4 +1,4 @@
-<div class="green-background h-100 d-flex">
+<div class="green-background d-flex">
   <div class="container-fluid green-scrollbar ">
     <div class="mt-auto mb-auto w-100">
       <div class="row" id="login-label">
@@ -8,7 +8,7 @@
       <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
         <!--USERNAME-->
         <div class="row">
-          <mat-form-field class="col-sm-10 offset-1">
+          <mat-form-field class="col-sm-10 offset-1" color="accent">
             <label>
               <input autofocus matInput placeholder="Enter username" formControlName="username" required>
             </label>
@@ -19,7 +19,7 @@
         </div>
         <!--PASSWORD-->
         <div class="row">
-          <mat-form-field class="col-sm-10 offset-1">
+          <mat-form-field class="col-sm-10 offset-1" color="$primary">
             <label>
               <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'"
                      required

@@ -1,3 +1,7 @@
+@import '~@angular/material/theming';
+$primary: mat-color(mat-palette($mat-green));
+$accent: mat-color(mat-palette($mat-green));
+
 .container-fluid {
   margin-top: 7%;
   border: 1px palegreen solid;
@@ -14,6 +18,8 @@
 
 mat-form-field {
   width: 100%;
+  outline: palegreen;
+  text-decoration: palegreen;
 }
 
 label {
