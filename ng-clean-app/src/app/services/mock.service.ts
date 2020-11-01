@@ -1,7 +1,7 @@
 import {Injectable} from "@angular/core";
 import {Observable, of} from "rxjs";
 import {User} from '../Models/Classes/User';
-import {LoginResponse} from "../Models/Classes/login-response";
+import {LoginResponse} from "../Models/Classes/LoginResponse";
 import {Authorization} from "../Models/Enumeration/Authorization";
 
 @Injectable({
@@ -47,6 +47,18 @@ export class mockService{
   }
 
   login(username: any, password: any) {
-    return new User('firstName', 'lastName', username, password, 'john@doe.com', 1, );
+    return new User('firstName', 'lastName', username, password, 'john@doe.com',
+      1, this.getAuthorizationEnum(username));
+  }
+
+  getAuthorizationEnum(username: string): Authorization{
+    if(username=='user')
+      return Authorization.USER;
+    else if(username=='admin')
+      return Authorization.ADMIN;
+    else if(username=='moderator')
+      return Authorization.MODERATOR;
+    else
+      return Authorization.VISITOR;
   }
 }

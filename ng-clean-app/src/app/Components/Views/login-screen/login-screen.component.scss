@@ -1,14 +1,10 @@
-@import '~@angular/material/theming';
-$primary: mat-color(mat-palette($mat-green));
-$accent: mat-color(mat-palette($mat-green));
-
 .container-fluid {
   margin-top: 7%;
   border: 1px palegreen solid;
-  padding: 5vh;
-  width: 40%;
-  background-color: white;
-  opacity: 0.8;
+  padding: 10vh;
+  width: 50%;
+  background-color: darkslategray;
+  opacity: 0.9;
   overflow-y: scroll;
   overflow-x: hidden;
   justify-content: center;
@@ -18,8 +14,6 @@ $accent: mat-color(mat-palette($mat-green));
 
 mat-form-field {
   width: 100%;
-  outline: palegreen;
-  text-decoration: palegreen;
 }
 
 label {
@@ -87,7 +81,7 @@ html, body {
 }
 
 .btn-outline-dark:hover:disabled {
-  background-color: white !important;
+  background-color: darkslategray !important;
   color: darkred !important;
 }
 

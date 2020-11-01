@@ -41,7 +41,9 @@ export class LoginScreenComponent implements OnInit {
         this.router.navigate(['/']).then(r => r.valueOf());
       },
       error => {
-        this.openSnackBar('Username or password is incorrect');
+        // this.openSnackBar('Username or password is incorrect');
+        this.openSnackBar(error);
+
       });
   }
 
